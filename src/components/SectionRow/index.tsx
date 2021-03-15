@@ -38,11 +38,11 @@ export interface SectionRowProps {
  * @description Section to contains multiple rows.
  */
 export function SectionRow(props: SectionRowProps): React.ReactElement {
-  const { children, title, containerStyle, titleStyle } = props;
+  const { children, title, containerStyle, containerSectionStyle, titleStyle } = props;
 
   return (
     <View style={[styles.container, containerStyle]}>
-      <View style={styles.containerSection}>
+      <View style={[styles.containerSection, containerSectionStyle]}>
         {title && <Text style={[styles.title, titleStyle]} ellipsizeMode="tail">{title}</Text>}
       </View>
       <View>{children}</View>
