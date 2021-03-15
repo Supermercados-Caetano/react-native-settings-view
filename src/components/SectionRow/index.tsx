@@ -29,6 +29,7 @@ export interface SectionRowProps {
    * The content of the settings page.
    */
   titleStyle?: StyleProp<TextStyle>;
+  containerSectionStyle?: StyleProp<ViewStyle>;
 }
 
 /**

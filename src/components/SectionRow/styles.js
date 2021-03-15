@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
   containerSection: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: 15,
+    justifyContent: 'center'
   },
   title: {
     flex: 1,
