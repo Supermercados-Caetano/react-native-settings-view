@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { Switch, SwitchProps } from 'react-native';
+import { ActivityIndicator, Switch, SwitchProps } from 'react-native';
 
 // Components
 import BaseRow, { BaseRowProps } from '../BaseRow';
@@ -19,7 +19,7 @@ export interface SwitchRowProps extends BaseRowProps {
   /**
    * Callback to communicate when the value changed.
    */
-  onValueChange?: (isEnabled: boolean) => void;
+  onValueChange?: (isEnabled: boolean) => Promise<boolean>;
 
   /**
    * The properties pass to checkbox.
@@ -35,15 +35,20 @@ export interface SwitchRowProps extends BaseRowProps {
 export function SwitchRow(props: SwitchRowProps): React.ReactElement {
   const { enabled, onValueChange, switchProps } = props;
   const [isEnabled, setEnabled] = React.useState(enabled);
-  const onChange = (): void => {
-    setEnabled(!isEnabled);
-    onValueChange?.(!isEnabled);
+  const [loading, setLoading] = React.useState(false);
+  const onChange = async (): Promise<void> => {
+    setLoading(true);
+    const res = await (onValueChange ? onValueChange(!isEnabled) : Promise.resolve(!isEnabled));
+    setLoading(false);
+    setEnabled(res);
+    //setEnabled(!isEnabled);
+    //onValueChange?.(!isEnabled);
   };
 
   return (
     <BaseRow
       {...props}
-      rightContent={(
+      rightContent={loading ? (<ActivityIndicator />) : (
         <Switch
           {...switchProps}
           onValueChange={onChange}
