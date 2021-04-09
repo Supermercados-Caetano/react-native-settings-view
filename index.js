@@ -6,3 +6,4 @@ export { default as NavigateRow } from './src/components/NavigateRow';
 export { default as SwitchRow } from './src/components/SwitchRow';
 export { default as CheckRow } from './src/components/CheckRow';
 export { default as SliderRow } from './src/components/SliderRow';
+export { default as SwitchRowAsync } from './src/components/SwitchRowAsync';

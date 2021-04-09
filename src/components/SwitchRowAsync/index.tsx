@@ -6,10 +6,10 @@ import { ActivityIndicator, Switch, SwitchProps } from 'react-native';
 import BaseRow, { BaseRowProps } from '../BaseRow';
 
 /**
- * @interface SwitchRowProps
+ * @interface SwitchRowAsyncProps
  * @description The properties definition of switch row.
  */
-export interface SwitchRowProps extends BaseRowProps {
+export interface SwitchRowAsyncProps extends BaseRowProps {
 	/**
 	 * Flag to checking the input.
 	 * @default false
@@ -19,7 +19,7 @@ export interface SwitchRowProps extends BaseRowProps {
 	/**
 	 * Callback to communicate when the value changed.
 	 */
-	onValueChange?: (isEnabled: boolean) => void;
+	onValueChange?: (isEnabled: boolean) => Promise<boolean>;
 
 	/**
 	 * The properties pass to checkbox.
@@ -32,27 +32,29 @@ export interface SwitchRowProps extends BaseRowProps {
  * @author Daniel Mejia
  * @description Row component for settings list with a switch.
  */
-export function SwitchRow(props: SwitchRowProps): React.ReactElement {
+export function SwitchRowAsync(props: SwitchRowAsyncProps): React.ReactElement {
 	const { enabled, onValueChange, switchProps } = props;
 	const [isEnabled, setEnabled] = React.useState(enabled);
-	const onChange = (): void => {
-		const newValue = !isEnabled;
-		setEnabled(newValue);
-		onValueChange?.(newValue);
+	const [loading, setLoading] = React.useState(false);
+	const onChange = async (): Promise<void> => {
+		setLoading(true);
+		const res = await (onValueChange ? onValueChange(!isEnabled) : Promise.resolve(!isEnabled));
+		setLoading(false);
+		setEnabled(res);
 	};
 
 	return (
 		<BaseRow
 			{...props}
-			rightContent={
-				(<Switch
+			rightContent={loading ? (<ActivityIndicator />) : (
+				<Switch
 					{...switchProps}
 					onValueChange={onChange}
 					value={isEnabled}
-				/>)
-			}
+				/>
+			)}
 		/>
 	);
 }
 
-export default SwitchRow;
+export default SwitchRowAsync;
