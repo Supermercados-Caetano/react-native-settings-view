@@ -43,7 +43,7 @@ export function SectionRow(props: SectionRowProps): React.ReactElement {
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={[styles.containerSection, containerSectionStyle]}>
-        {title && <Text style={[styles.title, titleStyle]} numberOfLines={2} ellipsizeMode="tail">{title}</Text>}
+        {title && <Text style={[styles.title, titleStyle]} ellipsizeMode="tail">{title}</Text>}
       </View>
       <View>{children}</View>
     </View>

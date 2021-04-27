@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     fontSize: 15,
     color: 'black',
-	flexWrap: 'wrap'
+	flexWrap: 'wrap',
   },
   rightContent: {
     flex: 1,
