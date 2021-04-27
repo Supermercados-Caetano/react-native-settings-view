@@ -11,40 +11,41 @@ import styles from './styles';
  * @description The properties definition of base row.
  */
 export interface BaseRowProps {
-  /**
-   * The on press function for the row.
-   */
-  onPress?: () => void;
+	/**
+	 * The on press function for the row.
+	 */
+	onPress?: () => void;
 
-  /**
-   * The properties for the left icon.
-   */
-  leftIcon: IconProps;
+	/**
+	 * The properties for the left icon.
+	 */
+	leftIcon: IconProps;
 
-  /**
-   * The text of the row.
-   */
-  text: string;
+	/**
+	 * The text of the row.
+	 */
+	text: string;
 
-  /**
-   * The content at the rigth side of the row.
-   */
-  rightContent: React.ReactNode;
+	/**
+	 * The content at the rigth side of the row.
+	 */
+	rightContent: React.ReactNode;
 
-  /**
-   * The styles applied to the text.
-   */
-  textStyle?: StyleProp<TextStyle>;
+	/**
+	 * The styles applied to the text.
+	 */
+	textStyle?: StyleProp<TextStyle>;
 
-  /**
-   * The content of the row.
-   */
-  children: React.ReactNode;
+	/**
+	 * The content of the row.
+	 */
+	children: React.ReactNode;
 
-  /**
-   * The properties for the divider of row.
-   */
-  dividerProps: DividerProps;
+	/**
+	 * The properties for the divider of row.
+	 */
+	dividerProps: DividerProps;
+	enabled?: boolean
 }
 
 /**
@@ -53,25 +54,25 @@ export interface BaseRowProps {
  * @description Common row component for settings list.
  */
 export function BaseRow(props: BaseRowProps): React.ReactElement {
-  const { onPress, leftIcon, text, rightContent, textStyle, children, dividerProps } = props;
+	const { onPress, leftIcon, text, rightContent, textStyle, children, dividerProps } = props;
 
-  return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.containerItem}>
-        <View style={styles.containerRow}>
-          {leftIcon && <Icon containerStyle={styles.iconLeft} {...leftIcon} />}
-          <Text style={[styles.text, textStyle]} numberOfLines={2}>
-            {text}
-          </Text>
-          <View style={styles.rightContent}>
-            {rightContent}
-          </View>
-        </View>
-        {children}
-      </View>
-      <Divider {...dividerProps} />
-    </TouchableOpacity>
-  );
+	return (
+		<TouchableOpacity onPress={onPress} disabled={!props?.enabled}>
+			<View style={styles.containerItem}>
+				<View style={styles.containerRow}>
+					{leftIcon && <Icon containerStyle={styles.iconLeft} {...leftIcon} />}
+					<Text style={[styles.text, textStyle]} numberOfLines={2}>
+						{text}
+					</Text>
+					<View style={styles.rightContent}>
+						{rightContent}
+					</View>
+				</View>
+				{children}
+			</View>
+			<Divider {...dividerProps} />
+		</TouchableOpacity>
+	);
 }
 
 export default BaseRow;
