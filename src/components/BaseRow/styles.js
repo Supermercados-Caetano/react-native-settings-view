@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+	flexWrap: 'wrap'
   },
   iconLeft: {
     paddingRight: 15,
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     fontSize: 15,
     color: 'black',
+	flexWrap: 'wrap',
   },
   rightContent: {
     flex: 1,

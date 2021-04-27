@@ -60,7 +60,7 @@ export function BaseRow(props: BaseRowProps): React.ReactElement {
       <View style={styles.containerItem}>
         <View style={styles.containerRow}>
           {leftIcon && <Icon containerStyle={styles.iconLeft} {...leftIcon} />}
-          <Text style={[styles.text, textStyle]}>
+          <Text style={[styles.text, textStyle]} numberOfLines={2}>
             {text}
           </Text>
           <View style={styles.rightContent}>

@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   containerSection: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+	flexWrap: 'wrap'
   },
   title: {
     flex: 1,
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     color: 'black',
+	flexWrap: 'wrap',
   },
 });
 
