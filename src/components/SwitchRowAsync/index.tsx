@@ -10,21 +10,21 @@ import BaseRow, { BaseRowProps } from '../BaseRow';
  * @description The properties definition of switch row.
  */
 export interface SwitchRowAsyncProps extends BaseRowProps {
-	/**
-	 * Flag to checking the input.
-	 * @default false
-	 */
-	enabled: boolean;
+  /**
+   * Flag to checking the input.
+   * @default false
+   */
+  enabled: boolean;
 
-	/**
-	 * Callback to communicate when the value changed.
-	 */
-	onValueChange?: (isEnabled: boolean) => Promise<boolean>;
+  /**
+   * Callback to communicate when the value changed.
+   */
+  onValueChange?: (isEnabled: boolean) => Promise<boolean>;
 
-	/**
-	 * The properties pass to checkbox.
-	 */
-	switchProps: SwitchProps;
+  /**
+   * The properties pass to checkbox.
+   */
+  switchProps: SwitchProps;
 }
 
 /**
@@ -33,28 +33,30 @@ export interface SwitchRowAsyncProps extends BaseRowProps {
  * @description Row component for settings list with a switch.
  */
 export function SwitchRowAsync(props: SwitchRowAsyncProps): React.ReactElement {
-	const { enabled, onValueChange, switchProps } = props;
-	const [isEnabled, setEnabled] = React.useState(enabled);
-	const [loading, setLoading] = React.useState(false);
-	const onChange = async (): Promise<void> => {
-		setLoading(true);
-		const res = await (onValueChange ? onValueChange(!isEnabled) : Promise.resolve(!isEnabled));
-		setLoading(false);
-		setEnabled(res);
-	};
+  const { enabled, onValueChange, switchProps } = props;
+  const [isEnabled, setEnabled] = React.useState(enabled);
+  const [loading, setLoading] = React.useState(false);
+  const onChange = async (): Promise<void> => {
+    setLoading(true);
+    const res = await (onValueChange
+      ? onValueChange(!isEnabled)
+      : Promise.resolve(!isEnabled));
+    setLoading(false);
+    setEnabled(res);
+  };
 
-	return (
-		<BaseRow
-			{...props}
-			rightContent={loading ? (<ActivityIndicator />) : (
-				<Switch
-					{...switchProps}
-					onValueChange={onChange}
-					value={isEnabled}
-				/>
-			)}
-		/>
-	);
+  return (
+    <BaseRow
+      {...props}
+      rightContent={
+        loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Switch {...switchProps} onValueChange={onChange} value={isEnabled} />
+        )
+      }
+    />
+  );
 }
 
 export default SwitchRowAsync;

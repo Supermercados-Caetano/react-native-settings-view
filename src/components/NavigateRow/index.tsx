@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { Icon, IconProps } from 'react-native-elements';
+import { Icon, IconProps } from '@rneui/base';
 
 // Components
 import BaseRow, { BaseRowProps } from '../BaseRow';

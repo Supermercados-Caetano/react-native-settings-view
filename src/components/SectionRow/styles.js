@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-	flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   title: {
     flex: 1,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     color: 'black',
-	flexWrap: 'wrap',
+    flexWrap: 'wrap',
   },
 });
 

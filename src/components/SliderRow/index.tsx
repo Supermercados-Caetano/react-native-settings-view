@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { Slider, SliderProps } from 'react-native-elements';
+import { Slider, SliderProps } from '@rneui/base';
 
 // Components
 import BaseRow, { BaseRowProps } from '../BaseRow';

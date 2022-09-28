@@ -1,6 +1,6 @@
 {
 	"name": "@supermercadoscaetano/react-native-settings-view",
-	"version": "0.2.85",
+	"version": "0.2.91",
 	"description": "An easy and highly customizable React Native components to create a complete settings view",
 	"license": "MIT",
 	"scripts": {
@@ -22,29 +22,25 @@
 	"author": "Daniel Mejia",
 	"homepage": "https://github.com/Supermercados-Caetano/react-native-settings-view#readme",
 	"devDependencies": {
-		"@types/enzyme": "3.10.5",
-		"@types/jest": "24.9.0",
-		"@types/react": "16.9.19",
-		"@types/react-native": "0.61.2",
-		"@types/react-test-renderer": "16.9.2",
-		"@typescript-eslint/eslint-plugin": "2.17.0",
-		"@typescript-eslint/parser": "2.17.0",
-		"babel-jest": "25.1.0",
-		"enzyme": "3.11.0",
-		"enzyme-adapter-react-16": "1.15.2",
-		"eslint": "6.8.0",
-		"eslint-config-airbnb": "18.0.1",
-		"eslint-plugin-import": "2.20.0",
-		"eslint-plugin-jsx-a11y": "6.2.3",
-		"eslint-plugin-react": "7.18.0",
-		"eslint-plugin-react-hooks": "1.7.0",
-		"jest": "25.1.0",
-		"react": "16.12.0",
-		"react-dom": "16.12.0",
-		"react-native": "0.61.5",
-		"typescript": "3.7.5"
+		"@types/enzyme": "^3.10.12",
+		"@types/react": "^18.0.18",
+		"@types/react-native": "^0.69.8",
+		"@types/react-test-renderer": "^18.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
+		"eslint": "^8.23.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.6.1",
+		"eslint-plugin-react": "^7.31.8",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"react": "~18.1.0",
+		"react-dom": "~18.1.0",
+		"react-native": "~0.70.0",
+		"typescript": "~3.8.3"
 	},
 	"dependencies": {
-		"react-native-elements": "1.2.7"
+		"@rneui/base": "^4.0.0-rc.6",
+		"@rneui/themed": "^4.0.0-rc.6"
 	}
 }

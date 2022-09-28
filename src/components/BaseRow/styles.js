@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     minHeight: 50,
+    alignItems: 'center',
   },
   containerRow: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-	flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   iconLeft: {
     paddingRight: 15,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     fontSize: 15,
     color: 'black',
-	flexWrap: 'wrap',
+    flexWrap: 'wrap',
   },
   rightContent: {
     flex: 1,

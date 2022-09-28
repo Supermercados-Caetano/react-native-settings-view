@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react';
 import { View, Text, StyleProp, TouchableOpacity, TextStyle } from 'react-native';
-import { Icon, IconProps, Divider, DividerProps } from 'react-native-elements';
+import { Icon, IconProps, Divider, DividerProps } from '@rneui/base';
 
 // Styles
 import styles from './styles';

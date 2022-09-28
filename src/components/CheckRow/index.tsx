@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { CheckBox, CheckBoxProps } from 'react-native-elements';
+import { CheckBox, CheckBoxProps } from '@rneui/base';
 
 // Components
 import BaseRow, { BaseRowProps } from '../BaseRow';
